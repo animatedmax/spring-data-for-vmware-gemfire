@@ -61,7 +61,6 @@ public class FactoryDefaultsPoolAdapterTest {
 		assertThat(this.poolAdapter.getSubscriptionMessageTrackingTimeout()).isEqualTo(PoolFactory.DEFAULT_SUBSCRIPTION_MESSAGE_TRACKING_TIMEOUT);
 		assertThat(this.poolAdapter.getSubscriptionRedundancy()).isEqualTo(PoolFactory.DEFAULT_SUBSCRIPTION_REDUNDANCY);
 		assertThat(this.poolAdapter.getSubscriptionTimeoutMultiplier()).isEqualTo(PoolFactory.DEFAULT_SUBSCRIPTION_TIMEOUT_MULTIPLIER);
-		assertThat(this.poolAdapter.getThreadLocalConnections()).isEqualTo(PoolFactory.DEFAULT_THREAD_LOCAL_CONNECTIONS);
 	}
 
 	@Test

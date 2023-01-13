@@ -244,7 +244,6 @@ public class ClientCachePropertiesIntegrationTests extends SpringApplicationCont
 		assertThat(defaultPool.getSubscriptionEnabled()).isTrue();
 		assertThat(defaultPool.getSubscriptionMessageTrackingTimeout()).isEqualTo(300000);
 		assertThat(defaultPool.getSubscriptionRedundancy()).isEqualTo(2);
-		assertThat(defaultPool.getThreadLocalConnections()).isTrue();
 
 		ResourceManager resourceManager = clientCache.getResourceManager();
 

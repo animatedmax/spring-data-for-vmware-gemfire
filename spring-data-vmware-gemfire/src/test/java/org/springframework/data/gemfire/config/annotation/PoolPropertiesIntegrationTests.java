@@ -90,7 +90,6 @@ public class PoolPropertiesIntegrationTests extends SpringApplicationContextInte
 		assertThat(pool.getSubscriptionEnabled()).isEqualTo(subscriptionEnabled);
 		assertThat(pool.getSubscriptionMessageTrackingTimeout()).isEqualTo(subscriptionMessageTrackingTimeout);
 		assertThat(pool.getSubscriptionRedundancy()).isEqualTo(subscriptionRedundancy);
-		assertThat(pool.getThreadLocalConnections()).isEqualTo(threadLocalConnections);
 	}
 
 	@Test
@@ -143,7 +142,6 @@ public class PoolPropertiesIntegrationTests extends SpringApplicationContextInte
 		assertThat(testPool.getSubscriptionEnabled()).isEqualTo(true);
 		assertThat(testPool.getSubscriptionMessageTrackingTimeout()).isEqualTo(PoolFactory.DEFAULT_SUBSCRIPTION_MESSAGE_TRACKING_TIMEOUT);
 		assertThat(testPool.getSubscriptionRedundancy()).isEqualTo(2);
-		assertThat(testPool.getThreadLocalConnections()).isFalse();
 	}
 
 	@Test

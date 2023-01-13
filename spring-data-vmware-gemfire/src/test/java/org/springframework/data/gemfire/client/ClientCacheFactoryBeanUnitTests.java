@@ -467,7 +467,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		when(mockPool.getSubscriptionEnabled()).thenReturn(true);
 		when(mockPool.getSubscriptionMessageTrackingTimeout()).thenReturn(500);
 		when(mockPool.getSubscriptionRedundancy()).thenReturn(2);
-		when(mockPool.getThreadLocalConnections()).thenReturn(false);
 		when(mockPool.getServers()).thenReturn(Arrays.asList(
 			new InetSocketAddress("localhost", 11235), new InetSocketAddress("localhost", 12480)));
 
@@ -527,7 +526,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		verify(mockPool, times(1)).getSubscriptionEnabled();
 		verify(mockPool, times(1)).getSubscriptionMessageTrackingTimeout();
 		verify(mockPool, times(1)).getSubscriptionRedundancy();
-		verify(mockPool, times(1)).getThreadLocalConnections();
 		verify(mockClientCacheFactory, times(1)).setPoolFreeConnectionTimeout(eq(10000));
 		verify(mockClientCacheFactory, times(1)).setPoolIdleTimeout(eq(120000L));
 		verify(mockClientCacheFactory, times(1)).setPoolLoadConditioningInterval(eq(30000));
@@ -583,7 +581,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		when(mockPool.getSubscriptionEnabled()).thenReturn(false);
 		when(mockPool.getSubscriptionMessageTrackingTimeout()).thenReturn(20000);
 		when(mockPool.getSubscriptionRedundancy()).thenReturn(1);
-		when(mockPool.getThreadLocalConnections()).thenReturn(true);
 
 		ClientCacheFactoryBean clientCacheFactoryBean = new ClientCacheFactoryBean();
 
@@ -657,7 +654,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		verify(mockPool, never()).getSubscriptionEnabled();
 		verify(mockPool, times(1)).getSubscriptionMessageTrackingTimeout();
 		verify(mockPool, never()).getSubscriptionRedundancy();
-		verify(mockPool, never()).getThreadLocalConnections();
 		verify(mockClientCacheFactory, times(1)).setPoolFreeConnectionTimeout(eq(5000));
 		verify(mockClientCacheFactory, times(1)).setPoolIdleTimeout(eq(180000L));
 		verify(mockClientCacheFactory, times(1)).setPoolLoadConditioningInterval(eq(300000));
