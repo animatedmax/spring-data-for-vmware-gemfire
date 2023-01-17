@@ -378,7 +378,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		clientCacheFactoryBean.setSubscriptionEnabled(true);
 		clientCacheFactoryBean.setSubscriptionMessageTrackingTimeout(500);
 		clientCacheFactoryBean.setSubscriptionRedundancy(2);
-		clientCacheFactoryBean.setThreadLocalConnections(false);
 		clientCacheFactoryBean.addLocators(newConnectionEndpoint("localhost", 11235),
 			newConnectionEndpoint("skullbox", 10334));
 
@@ -406,7 +405,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		assertThat(clientCacheFactoryBean.getSubscriptionEnabled()).isTrue();
 		assertThat(clientCacheFactoryBean.getSubscriptionMessageTrackingTimeout()).isEqualTo(500);
 		assertThat(clientCacheFactoryBean.getSubscriptionRedundancy()).isEqualTo(2);
-		assertThat(clientCacheFactoryBean.getThreadLocalConnections()).isFalse();
 
 		ClientCacheFactory mockClientCacheFactory = mock(ClientCacheFactory.class);
 
@@ -432,7 +430,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		verify(mockClientCacheFactory, times(1)).setPoolSubscriptionEnabled(eq(true));
 		verify(mockClientCacheFactory, times(1)).setPoolSubscriptionMessageTrackingTimeout(eq(500));
 		verify(mockClientCacheFactory, times(1)).setPoolSubscriptionRedundancy(eq(2));
-		verify(mockClientCacheFactory, times(1)).setPoolThreadLocalConnections(eq(false));
 		verify(mockClientCacheFactory, times(1)).addPoolLocator(eq("localhost"), eq(11235));
 		verify(mockClientCacheFactory, times(1)).addPoolLocator(eq("skullbox"), eq(10334));
 		verify(mockClientCacheFactory, never()).addPoolServer(anyString(), anyInt());
@@ -498,7 +495,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		assertThat(clientCacheFactoryBean.getSubscriptionEnabled()).isNull();
 		assertThat(clientCacheFactoryBean.getSubscriptionMessageTrackingTimeout()).isNull();
 		assertThat(clientCacheFactoryBean.getSubscriptionRedundancy()).isNull();
-		assertThat(clientCacheFactoryBean.getThreadLocalConnections()).isNull();
 
 		ClientCacheFactory mockClientCacheFactory = mock(ClientCacheFactory.class);
 
@@ -546,7 +542,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		verify(mockClientCacheFactory, times(1)).setPoolSubscriptionEnabled(eq(true));
 		verify(mockClientCacheFactory, times(1)).setPoolSubscriptionMessageTrackingTimeout(eq(500));
 		verify(mockClientCacheFactory, times(1)).setPoolSubscriptionRedundancy(eq(2));
-		verify(mockClientCacheFactory, times(1)).setPoolThreadLocalConnections(eq(false));
 		verify(mockClientCacheFactory, times(1)).addPoolServer(eq("localhost"), eq(11235));
 		verify(mockClientCacheFactory, times(1)).addPoolServer(eq("localhost"), eq(12480));
 		verify(mockClientCacheFactory, never()).addPoolLocator(anyString(), anyInt());
@@ -599,7 +594,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		clientCacheFactoryBean.setSubscriptionAckInterval(100);
 		clientCacheFactoryBean.setSubscriptionEnabled(true);
 		clientCacheFactoryBean.setSubscriptionRedundancy(2);
-		clientCacheFactoryBean.setThreadLocalConnections(false);
 		clientCacheFactoryBean.addLocators(newConnectionEndpoint("localhost", 11235));
 
 		assertThat(clientCacheFactoryBean.getFreeConnectionTimeout()).isNull();
@@ -626,7 +620,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		assertThat(clientCacheFactoryBean.getSubscriptionEnabled()).isTrue();
 		assertThat(clientCacheFactoryBean.getSubscriptionMessageTrackingTimeout()).isNull();
 		assertThat(clientCacheFactoryBean.getSubscriptionRedundancy()).isEqualTo(2);
-		assertThat(clientCacheFactoryBean.getThreadLocalConnections()).isFalse();
 
 		ClientCacheFactory mockClientCacheFactory = mock(ClientCacheFactory.class);
 
@@ -1108,7 +1101,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		assertThat(clientCacheFactoryBean.getSubscriptionEnabled()).isNull();
 		assertThat(clientCacheFactoryBean.getSubscriptionMessageTrackingTimeout()).isNull();
 		assertThat(clientCacheFactoryBean.getSubscriptionRedundancy()).isNull();
-		assertThat(clientCacheFactoryBean.getThreadLocalConnections()).isNull();
 
 		clientCacheFactoryBean.setFreeConnectionTimeout(5000);
 		clientCacheFactoryBean.setIdleTimeout(120000L);
@@ -1128,7 +1120,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		clientCacheFactoryBean.setSubscriptionEnabled(true);
 		clientCacheFactoryBean.setSubscriptionMessageTrackingTimeout(20000);
 		clientCacheFactoryBean.setSubscriptionRedundancy(2);
-		clientCacheFactoryBean.setThreadLocalConnections(false);
 
 		assertThat(clientCacheFactoryBean.getFreeConnectionTimeout()).isEqualTo(5000);
 		assertThat(clientCacheFactoryBean.getIdleTimeout()).isEqualTo(120000L);
@@ -1148,7 +1139,6 @@ public class ClientCacheFactoryBeanUnitTests {
 		assertThat(clientCacheFactoryBean.getSubscriptionEnabled()).isTrue();
 		assertThat(clientCacheFactoryBean.getSubscriptionMessageTrackingTimeout()).isEqualTo(20000);
 		assertThat(clientCacheFactoryBean.getSubscriptionRedundancy()).isEqualTo(2);
-		assertThat(clientCacheFactoryBean.getThreadLocalConnections()).isFalse();
 	}
 
 	@Test

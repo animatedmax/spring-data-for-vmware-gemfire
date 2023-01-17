@@ -84,7 +84,6 @@ public class ClientCacheFactoryBean extends CacheFactoryBean implements Applicat
 	private Boolean prSingleHopEnabled;
 	private Boolean readyForEvents;
 	private Boolean subscriptionEnabled;
-	private Boolean threadLocalConnections;
 
 	private final ConnectionEndpointList locators = new ConnectionEndpointList();
 	private final ConnectionEndpointList servers = new ConnectionEndpointList();
@@ -860,14 +859,6 @@ public class ClientCacheFactoryBean extends CacheFactoryBean implements Applicat
 
 	public Integer getSubscriptionRedundancy() {
 		return this.subscriptionRedundancy;
-	}
-
-	public void setThreadLocalConnections(Boolean threadLocalConnections) {
-		this.threadLocalConnections = threadLocalConnections;
-	}
-
-	public Boolean getThreadLocalConnections() {
-		return this.threadLocalConnections;
 	}
 
 	@Override

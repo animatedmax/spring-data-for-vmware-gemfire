@@ -122,9 +122,4 @@ public class FactoryDefaultsPoolAdapterTest {
 	public void destroyedWithKeepAliveIsUnsupported() {
 		testPoolOperationIsUnsupported(() -> { this.poolAdapter.destroy(false); return null; });
 	}
-
-	@Test(expected = UnsupportedOperationException.class)
-	public void releaseThreadLocalConnectionsIsUnsupported() {
-		testPoolOperationIsUnsupported(() -> { this.poolAdapter.releaseThreadLocalConnection(); return null; });
-	}
 }
